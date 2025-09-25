@@ -1,23 +1,36 @@
-<div class="row text-center">
-  <div class="col-md-4">
-    <div class="card p-3 bg-primary text-white">
-      <h4>Orders</h4>
-      <p>120</p>
-      <a routerLink="/admin/products" class="btn btn-light mt-2">Manage Products</a>
-    </div>
+<div class="container py-4">
+  <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-4">
+    <h1 class="h4 m-0">Admin Dashboard</h1>
+    <a routerLink="/admin/products/new" class="btn btn-primary">New product</a>
   </div>
-  <div class="col-md-4">
-    <div class="card p-3 bg-success text-white">
-      <h4>Users</h4>
-      <p>80</p>
-      <a routerLink="/admin/users" class="btn btn-light mt-2">Manage Users</a>
+
+  <div class="row g-4">
+    <div class="col-12 col-md-4">
+      <div class="metric-card metric-blue">
+        <div>
+          <div class="metric-label">Orders</div>
+          <div class="metric-value">120</div>
+        </div>
+        <a routerLink="/admin/products" class="btn btn-light">Manage Products</a>
+      </div>
     </div>
-  </div>
-  <div class="col-md-4">
-    <div class="card p-3 bg-warning text-white">
-      <h4>Products</h4>
-      <p>45</p>
-      <a routerLink="/admin/products" class="btn btn-light mt-2">View Products</a>
+    <div class="col-12 col-md-4">
+      <div class="metric-card metric-green">
+        <div>
+          <div class="metric-label">Users</div>
+          <div class="metric-value">80</div>
+        </div>
+        <a routerLink="/admin/users" class="btn btn-light">Manage Users</a>
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="metric-card metric-yellow">
+        <div>
+          <div class="metric-label">Products</div>
+          <div class="metric-value">45</div>
+        </div>
+        <a routerLink="/admin/products" class="btn btn-light">View Products</a>
+      </div>
     </div>
   </div>
 </div>

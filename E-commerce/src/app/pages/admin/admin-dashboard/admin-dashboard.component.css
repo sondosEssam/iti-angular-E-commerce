@@ -1,4 +1,16 @@
-.card {
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.metric-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-shadow: 0 10px 24px rgba(2,6,23,.08);
 }
+.metric-label { color: #334155; font-weight: 600; }
+.metric-value { font-size: 2rem; font-weight: 800; }
+.metric-blue { background: linear-gradient(135deg, #2563eb11, #1d4ed811); }
+.metric-green { background: linear-gradient(135deg, #10b98111, #05966911); }
+.metric-yellow { background: linear-gradient(135deg, #f59e0b11, #d9770611); }
