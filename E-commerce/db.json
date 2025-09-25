@@ -4,7 +4,7 @@
       "id": "1",
       "name": "sondos",
       "email": "sondosessam713@gmail.com",
-      "password": "sdsd",
+      "password": "123456",
       "token": "9a7nkujhon",
       "role": "admin"
     },
@@ -105,6 +105,12 @@
       "id": "a2bd",
       "userId": 2,
       "productId": "1",
+      "quantity": 1
+    },
+    {
+      "id": "3559",
+      "userId": 2,
+      "productId": "2",
       "quantity": 1
     }
   ],
