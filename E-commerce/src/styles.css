@@ -14,4 +14,19 @@
     --pale-azure: #8FD5FDff;
     --lion: #AB8C5Eff;
     --lion-light: rgba(171, 140, 94, 0.5);
+    /* Modern palette */
+    --brand: #2563eb;
+    --brand-600: #1d4ed8;
+    --surface: #f8fafc;
 }
+
+html, body { background: var(--surface); }
+
+.btn-primary { background: var(--brand); border-color: var(--brand); }
+.btn-primary:hover { background: var(--brand-600); border-color: var(--brand-600); }
+
+.card { border: 0; border-radius: 12px; }
+.card .card-img-top { border-top-left-radius: 12px; border-top-right-radius: 12px; }
+
+.navbar-light .navbar-brand { font-weight: 700; }
+.navbar-light .nav-link.active { color: var(--brand) !important; }

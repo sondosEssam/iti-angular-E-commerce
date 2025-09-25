@@ -1,18 +1,21 @@
 import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { Http } from '../../services/http';
+import { NotifyService } from '../../services/notify.service';
 import { Token } from '../../services/token';
 import { IUser } from '../../interface/iuser';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
-  imports: [RouterLink, RouterLinkActive, ReactiveFormsModule],
+  standalone: true,
+  imports: [CommonModule, RouterLink, RouterLinkActive, ReactiveFormsModule],
   templateUrl: './login.html',
   styleUrl: './login.css'
 })
 export class Login {
-constructor(private http: Http, private token:Token, private router:Router) 
+constructor(private http: Http, private token:Token, private router:Router, private notify: NotifyService) 
 { }
  users:IUser[] = [];
 ngOnInit(): void {
@@ -31,14 +34,14 @@ ngOnInit(): void {
 }
   fb = inject(FormBuilder);
   form = this.fb.nonNullable.group({
-    email: ['', Validators.required],
-    password: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
   });
 onSubmit()
 {
   if(!this.form.valid)
   {
-    alert("Please fill all fields");
+    this.notify.show('Please fill all fields correctly.', 'warning');
     return;
   }
    const {email, password} = this.form.value;
@@ -47,11 +50,16 @@ onSubmit()
   {
     this.token.setToken(user.token!);
     localStorage.setItem("auth", JSON.stringify(user.token));
-    this.router.navigate(['/home']);
+    this.notify.show('Welcome back!', 'success');
+    if (user.role === 'admin') {
+      this.router.navigate(['/admin/dashboard']);
+    } else {
+      this.router.navigate(['/']);
+    }
   }
   else
   {
-    alert("Invalid email or password");
+    this.notify.show('Invalid email or password', 'danger');
   }
 
 }

@@ -1,1 +1,16 @@
-<p>profile works!</p>
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <h2 class="h4 mb-3">My Profile</h2>
+          <p class="text-muted" *ngIf="user as u">Logged in as <strong>{{ u.name }}</strong> ({{ u.email }})</p>
+          <div class="d-flex gap-2">
+            <a class="btn btn-outline-primary" routerLink="/orders">My Orders</a>
+            <a class="btn btn-outline-secondary" routerLink="/cart">My Cart</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

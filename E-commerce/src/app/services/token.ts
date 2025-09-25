@@ -7,7 +7,19 @@ export class Token {
   // 👇 this is writable by default
   private token = signal<string>("");
 
-  constructor() {}
+  constructor() {
+    const saved = localStorage.getItem('auth');
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (typeof parsed === 'string') {
+          this.token.set(parsed);
+        }
+      } catch {
+        // ignore
+      }
+    }
+  }
 
   setToken(token: string): void {
     this.token.set(token);   // update signal

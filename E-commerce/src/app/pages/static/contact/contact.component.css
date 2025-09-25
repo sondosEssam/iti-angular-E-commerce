@@ -1,0 +1,108 @@
+.page-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.page-header .lead {
+  color: #666;
+}
+
+.content.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.contact-form {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+input,
+textarea {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.invalid {
+  border-color: #dc3545 !important;
+}
+
+.error {
+  color: #dc3545;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btn.btn-primary {
+  background: #007bff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn.btn-primary:hover {
+  background: #0056b3;
+}
+
+.success {
+  color: #28a745;
+  font-weight: 600;
+}
+
+.contact-info {
+  padding: 1rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.contact-info h3,
+.contact-info h4 {
+  margin-top: 0;
+}
+
+.map-placeholder {
+  background: #e9ecef;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 6px;
+  margin-top: 1rem;
+}
+

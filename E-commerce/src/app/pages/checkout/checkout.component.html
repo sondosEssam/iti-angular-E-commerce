@@ -1,0 +1,44 @@
+<div class="container py-4">
+  <h1 class="h3">Checkout</h1>
+  <div class="row">
+    <div class="col-md-8">
+      <form>
+        <h5>Shipping</h5>
+        <div class="row g-2">
+          <div class="col-md-6">
+            <input class="form-control" placeholder="Full name" [(ngModel)]="shipping.name" name="shipName">
+            <div class="text-danger small" *ngIf="submitted && !shipping.name">Name is required.</div>
+          </div>
+          <div class="col-md-6">
+            <input class="form-control" placeholder="Address" [(ngModel)]="shipping.address" name="shipAddress">
+            <div class="text-danger small" *ngIf="submitted && !shipping.address">Address is required.</div>
+          </div>
+          <div class="col-md-6">
+            <input class="form-control" placeholder="City" [(ngModel)]="shipping.city" name="shipCity">
+            <div class="text-danger small" *ngIf="submitted && !shipping.city">City is required.</div>
+          </div>
+          <div class="col-md-6">
+            <input class="form-control" placeholder="Country" [(ngModel)]="shipping.country" name="shipCountry">
+            <div class="text-danger small" *ngIf="submitted && !shipping.country">Country is required.</div>
+          </div>
+        </div>
+        <hr>
+        <h5>Payment</h5>
+        <select class="form-select" [(ngModel)]="payment.method" name="payMethod">
+          <option value="cod">Cash on delivery</option>
+          <option value="visa">Visa</option>
+        </select>
+      </form>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5>Order Summary</h5>
+          <button class="btn btn-success w-100 mt-3" (click)="placeOrder()">Place Order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,49 @@
+<div class="container py-4">
+  <h1 class="h3">Your Cart</h1>
+  <div class="table-responsive" *ngIf="items.length; else empty">
+    <table class="table align-middle">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Qty</th>
+          <th>Subtotal</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let it of items">
+          <td>
+            <div class="d-flex align-items-center">
+              <img [src]="it.product?.image" class="me-2" style="width:60px;height:60px;object-fit:cover;border-radius:6px" />
+              <div>
+                <a [routerLink]="['/product', it.productId]">{{ it.product?.title }}</a>
+              </div>
+            </div>
+          </td>
+          <td>{{ it.product?.price | currency:'EGP' }}</td>
+          <td>
+            <div class="btn-group btn-group-sm" role="group">
+              <button class="btn btn-outline-secondary" (click)="updateQuantity(it, -1)">-</button>
+              <button class="btn btn-light" disabled>{{ it.quantity }}</button>
+              <button class="btn btn-outline-secondary" (click)="updateQuantity(it, 1)">+</button>
+            </div>
+          </td>
+          <td>{{ (it.product?.price || 0) * it.quantity | currency:'EGP' }}</td>
+          <td><button class="btn btn-sm btn-outline-danger" (click)="remove(it)">Remove</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="text-end">
+      <div class="h5">Subtotal: {{ subtotal | currency:'EGP' }}</div>
+      <a class="btn btn-primary mt-2" routerLink="/checkout">Proceed to Checkout</a>
+    </div>
+  </div>
+
+  <ng-template #empty>
+    <div class="alert alert-info">Your cart is empty.</div>
+  </ng-template>
+</div>
+
+

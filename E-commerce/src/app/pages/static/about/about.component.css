@@ -1,0 +1,9 @@
+.page { padding:2rem 0 }
+.page-header .lead { color:#374151 }
+.content { margin-top:1.25rem }
+.mission, .history, .values { margin-bottom:1.1rem }
+.team-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:0.9rem }
+.member { background:#f8fafc; padding:0.8rem; border-radius:8px; box-shadow:0 4px 14px rgba(2,6,23,0.03) }
+.member strong { display:block }
+.member span { color:#6b7280; font-size:0.9rem }
+

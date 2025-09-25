@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IUser } from '../interface/iuser';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +15,10 @@ export class Http  {
   addUser(user:IUser): Observable<IUser>{
     return this.http.post<IUser>(`${this.base_url}/users`,user);
   }
-  getUserByToken(token:string): Observable<IUser>{
-    return this.http.get<IUser>(`${this.base_url}/users?token=${token}`);
+  getUserByToken(token:string): Observable<IUser | null>{
+    return this.http.get<IUser[]>(`${this.base_url}/users?token=${token}`).pipe(
+      map(users => users[0] ?? null)
+    );
   }
   updatePassword(user:IUser): Observable<IUser>{
 

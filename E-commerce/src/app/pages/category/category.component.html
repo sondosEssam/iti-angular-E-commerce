@@ -1,0 +1,17 @@
+<div class="container py-4">
+  <h1 class="h3">Category: {{ slug }}</h1>
+  <div class="row g-3">
+    <div class="col-md-3" *ngFor="let p of products">
+      <div class="card h-100">
+        <img [src]="p.image" class="card-img-top" alt="{{p.title}}">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ p.title }}</h5>
+          <p class="card-text">{{ p.price | currency:'EGP' }}</p>
+          <a [routerLink]="['/product', p.id]" class="btn btn-sm btn-primary mt-auto">View</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,106 @@
+<section class="page contact-page container">
+  <header class="page-header">
+    <h1>Contact Us</h1>
+    <p class="lead">Questions? Feedback? We would love to hear from you.</p>
+  </header>
+
+  <div class="content grid">
+    <!-- Contact Form -->
+    <div class="contact-form">
+      <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
+        
+        <!-- Name -->
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input
+            id="name"
+            type="text"
+            name="name"
+            [(ngModel)]="name"
+            required
+            minlength="2"
+            #nameField="ngModel"
+            [class.invalid]="submitted && nameField.invalid"
+          />
+          <div class="error" *ngIf="submitted && nameField.invalid">
+            Name is required (min 2 chars).
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            [(ngModel)]="email"
+            required
+            email
+            #emailField="ngModel"
+            [class.invalid]="submitted && emailField.invalid"
+          />
+          <div class="error" *ngIf="submitted && emailField.invalid">
+            Provide a valid email.
+          </div>
+        </div>
+
+        <!-- Subject -->
+        <div class="form-row">
+          <label for="subject">Subject</label>
+          <input
+            id="subject"
+            type="text"
+            name="subject"
+            [(ngModel)]="subject"
+            required
+            #subjectField="ngModel"
+            [class.invalid]="submitted && subjectField.invalid"
+          />
+          <div class="error" *ngIf="submitted && subjectField.invalid">
+            Subject is required.
+          </div>
+        </div>
+
+        <!-- Message -->
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            rows="6"
+            name="message"
+            [(ngModel)]="message"
+            required
+            minlength="10"
+            #messageField="ngModel"
+            [class.invalid]="submitted && messageField.invalid"
+          ></textarea>
+          <div class="error" *ngIf="submitted && messageField.invalid">
+            Message must be at least 10 characters.
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit">Send message</button>
+          <span class="success" *ngIf="success">Message sent — thank you!</span>
+        </div>
+      </form>
+    </div>
+
+    <!-- Contact Info -->
+    <aside class="contact-info">
+      <h3>Contact information</h3>
+      <p>Office: 123 Demo Street, Cairo, Egypt</p>
+      <p>Email: <a href="mailto:support@itishop.test">support"&#64;"itishop.test</a></p>
+      <p>Phone: +20 100 000 0000</p>
+
+      <h4>Opening hours</h4>
+      <p>Mon — Fri: 9:00 — 18:00</p>
+      <p>Sat: 10:00 — 16:00</p>
+      <p>Sun: Closed</p>
+
+    </aside>
+  </div>
+</section>
+

@@ -1,0 +1,11 @@
+.container {
+  max-width: 600px;
+}
+
+h2 {
+  color: #198754; /* Bootstrap green */
+}
+
+button {
+  min-width: 100px;
+}

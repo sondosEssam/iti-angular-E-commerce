@@ -1,13 +1,16 @@
 import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { Http } from '../../services/http';
 import { IUser } from '../../interface/iuser';
 import { Token } from '../../services/token';
+import { NotifyService } from '../../services/notify.service';
 
 @Component({
   selector: 'app-signup',
-  imports: [RouterLink, RouterLinkActive, ReactiveFormsModule],
+  standalone: true,
+  imports: [CommonModule, RouterLink, RouterLinkActive, ReactiveFormsModule],
   templateUrl: './signup.html',
   styleUrl: './signup.css'
 })
@@ -15,7 +18,8 @@ export class Signup {
   constructor(
     private router: Router,
     private http: Http,
-    private token: Token
+    private token: Token,
+    private notify: NotifyService
   ) {}
   ngOnInit(): void {
     if (this.token.getToken()) {
@@ -24,9 +28,9 @@ export class Signup {
   }
   fb = inject(FormBuilder);
   form = this.fb.nonNullable.group({
-    name: ['', Validators.required],
-    email: ['', Validators.required],
-    password: ['', Validators.required],
+    name: ['', [Validators.required, Validators.minLength(2)]],
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
     confirmPassword: ['', Validators.required]
   });
 
@@ -36,7 +40,7 @@ export class Signup {
         next: (data) => {
           // check email
           if (data.find(u => u.email === this.form.value.email)) {
-            alert("Email already exists");
+            this.notify.show('Email already exists', 'warning');
             return;
           }
 
@@ -44,7 +48,7 @@ export class Signup {
 
           // check password
           if (val.password !== val.confirmPassword) {
-            alert("Password and Confirm Password do not match");
+            this.notify.show('Password and Confirm Password do not match', 'warning');
             return;
           }
 
@@ -64,7 +68,8 @@ export class Signup {
               this.token.setToken(data.token!);
               localStorage.setItem("auth", JSON.stringify(data.token));
               console.log("User added:", data);
-              this.router.navigate(['home']);
+              this.notify.show('Account created. Welcome!', 'success');
+              this.router.navigate(['/']);
             },
             error: (err) => {
               console.error("Error adding user:", err);

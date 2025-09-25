@@ -1,0 +1,23 @@
+<div class="container mt-4">
+  <h2 class="mb-3">Users</h2>
+
+  <table class="table table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of users">
+        <td>{{ u.name }}</td>
+        <td>{{ u.role }}</td>
+        <td>{{ u.status }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <a routerLink="/admin/dashboard" class="btn btn-secondary mt-3">Back to Dashboard</a>
+</div>
+
