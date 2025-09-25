@@ -1,59 +1,162 @@
-# ECommerce
+# ITI Shop - Angular E-commerce Application
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.1.
+A modern e-commerce application built with Angular 17+ and Bootstrap 5, featuring complete shopping experience with user authentication, product management, and admin dashboard.
 
-## Development server
+## Features
 
-To start a local development server, run:
+**Customer Features:**
+- User authentication (register, login, password reset)
+- Product browsing with category filtering and live search
+- Shopping cart with quantity management
+- Secure checkout with form validation
+- Order history and tracking
+- Responsive design
 
+**Admin Features:**
+- Dashboard with metrics
+- Product management (CRUD operations)
+- User management
+- Order management
+- Admin can shop as regular customer
+
+**Technical Features:**
+- Standalone Angular components
+- Reactive forms with validation
+- Route guards for protected pages
+- JSON Server for mock backend
+- Global notification system
+
+## Technology Stack
+
+- Angular 17+, Bootstrap 5, JSON Server, Angular Signals, Reactive Forms
+
+## Prerequisites
+
+- Node.js 16+, npm 8+, Angular CLI 17+
+
+## Installation
+
+1. Clone and install dependencies:
 ```bash
+git clone <repository-url>
+cd E-commerce
+npm install
+```
+
+2. Install JSON Server globally:
+```bash
+npm install -g json-server
+```
+
+3. Start both servers:
+```bash
+# Terminal 1: Start JSON Server
+json-server --watch db.json --port 3000
+
+# Terminal 2: Start Angular dev server
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+4. Open `http://localhost:4200`
 
-## Code scaffolding
+## API Endpoints
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+The application uses JSON Server for mock backend with these endpoints:
 
-```bash
-ng generate component component-name
-```
+- **Products:** GET/POST/PUT/DELETE `/products` - Product CRUD operations
+- **Users:** GET/POST/PUT `/users` - User management and authentication
+- **Cart:** GET/POST/PUT/DELETE `/cart?userId=:id` - User-specific cart operations
+- **Orders:** GET/POST `/orders` - Order creation and retrieval
+- **Categories:** GET `/categories` - Product categories
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## User Roles
 
-```bash
-ng generate --help
-```
+### Customer Role
+- Browse and search products with filtering
+- Add items to cart and manage quantities
+- Complete checkout process with address validation
+- View order history and tracking information
+- Manage personal profile
 
-## Building
+### Admin Role
+- All customer features plus:
+- Access admin dashboard with metrics
+- Create, edit, and delete products
+- Manage user accounts and roles
+- View and manage all orders
+- Can shop as regular customer when needed
 
-To build the project run:
+## Default Login Credentials
 
-```bash
-ng build
-```
+**Admin:**
+- Email: sondosessam713@gmail.com
+- Password: 123456
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+**Regular User:**
+- Email: user@example.com
+- Password: 123456
 
-## Running unit tests
+## Key Features
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Authentication System
+- Token-based authentication with secure login/logout
+- User registration with form validation (minimum 6 characters password)
+- Password reset functionality
+- Route guards protecting checkout and admin pages
+- Admin role-based access control
 
-```bash
-ng test
-```
+### Product Management
+- Product catalog with category filtering and live search
+- Product detail pages with quantity selection
+- Stock management with low-stock indicators ("Only 1 left" badges)
+- Discount badges and pricing display
+- Admin can create, edit, and delete products
 
-## Running end-to-end tests
+### Shopping Cart & Checkout
+- User-specific cart isolation (each user has unique cart)
+- Add/remove items with quantity controls
+- Item compression (combines duplicate items: "2x Laptop" instead of two separate entries)
+- Real-time cart updates and persistence
+- Secure checkout with shipping/billing address validation
+- Automatic cart clearing after successful order placement
 
-For end-to-end (e2e) testing, run:
+### Order Management
+- Order history for customers with tracking
+- Order confirmation pages with order IDs
+- Admin can view and manage all orders
 
-```bash
-ng e2e
-```
+### User Experience
+- Global toast notification system for user feedback
+- Responsive design with Bootstrap 5 and custom CSS
+- Modern UI with linear gradients and smooth animations
+- Mobile-first responsive layout
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Troubleshooting
 
-## Additional Resources
+### Common Issues
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. **JSON Server not starting**
+   - Ensure port 3000 is not in use by another application
+   - Install JSON Server globally: `npm install -g json-server`
+   - Verify db.json file exists in the root directory
+
+2. **CORS or API errors**
+   - Both servers must be running simultaneously (Angular on 4200, JSON Server on 3000)
+   - Check browser network tab for failed API requests
+   - Restart both servers if connection issues persist
+
+3. **Authentication problems**
+   - Clear browser localStorage when switching between users
+   - Verify user credentials exist in db.json
+   - Check browser console for token-related errors
+
+4. **Cart not updating**
+   - Ensure user is properly logged in
+   - Check if userId is set in localStorage
+   - Verify cart service API calls are successful
+
+### Development Tips
+- Use browser developer tools to monitor network requests
+- Check console for JavaScript errors
+- Test with different user accounts to verify cart isolation
+- Verify JSON Server logs for API request/response details
