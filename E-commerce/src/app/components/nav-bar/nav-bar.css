@@ -2,4 +2,4 @@
 .app-navbar { background: rgba(255,255,255,.8); backdrop-filter: saturate(180%) blur(10px); border-bottom: 1px solid #e2e8f0; }
 .app-navbar .navbar-brand { letter-spacing: .3px; }
 .app-navbar .nav-link { color: #334155; }
-.app-navbar .nav-link.active, .app-navbar .nav-link:hover { color: #2563eb; }
+.app-navbar .nav-link.active, .app-navbar .nav-link:hover { color: #1d4ed8; }
