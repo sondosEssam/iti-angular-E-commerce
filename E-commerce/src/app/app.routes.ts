@@ -16,6 +16,7 @@ import { ProductManagerPageComponent } from './pages/admin/product-manager/produ
 import { ProductCreatePageComponent } from './pages/admin/product-create/product-create.component';
 import { ProductEditPageComponent } from './pages/admin/product-edit/product-edit.component';
 import { UserManagerPageComponent } from './pages/admin/user-manager/user-manager.component';
+import { adminGuard } from './guards/admin-guard';
 import { Login } from './components/login/login';
 import { Signup } from './components/signup/signup';
 import { ForgetPassword } from './components/forget-password/forget-password';
@@ -42,11 +43,11 @@ export const routes: Routes = [
     { path: 'terms', component: TermsComponent },
     { path: 'privacy', component: PrivacyComponent },
 
-    { path: 'admin/dashboard', component: AdminDashboardPageComponent },
-    { path: 'admin/products', component: ProductManagerPageComponent },
-    { path: 'admin/products/new', component: ProductCreatePageComponent },
-    { path: 'admin/products/:id/edit', component: ProductEditPageComponent },
-    { path: 'admin/users', component: UserManagerPageComponent },
+    { path: 'admin/dashboard', component: AdminDashboardPageComponent, canActivate: [adminGuard] },
+    { path: 'admin/products', component: ProductManagerPageComponent, canActivate: [adminGuard] },
+    { path: 'admin/products/new', component: ProductCreatePageComponent, canActivate: [adminGuard] },
+    { path: 'admin/products/:id/edit', component: ProductEditPageComponent, canActivate: [adminGuard] },
+    { path: 'admin/users', component: UserManagerPageComponent, canActivate: [adminGuard] },
 
     { path: '**', redirectTo: '' }
 ];

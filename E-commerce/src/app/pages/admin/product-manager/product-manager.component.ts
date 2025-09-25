@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { ProductService, Product } from '../../../services/product.service';
 
 @Component({
   selector: 'app-product-manager',
@@ -10,13 +11,18 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./product-manager.component.css']
 })
 export class ProductManagerPageComponent {
-  products = [
-    { id: 1, name: 'Laptop', price: 1000, stock: 5 },
-    { id: 2, name: 'Phone', price: 500, stock: 10 },
-  ];
+  products: Product[] = [];
+  constructor(private productService: ProductService) {}
+
+  ngOnInit() {
+    this.load();
+  }
+
+  load() {
+    this.productService.getProducts().subscribe(p => this.products = p);
+  }
 
   deleteProduct(id: number) {
-    this.products = this.products.filter(p => p.id !== id);
-    alert('Product deleted with id: ' + id);
+    this.productService.deleteProduct(id).subscribe(() => this.load());
   }
 }

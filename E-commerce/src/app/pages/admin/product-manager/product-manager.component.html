@@ -15,8 +15,8 @@
     </thead>
     <tbody>
       <tr *ngFor="let p of products">
-        <td>{{ p.name }}</td>
-        <td>{{ p.price }} $</td>
+        <td>{{ p.title }}</td>
+        <td>{{ p.price | currency:'EGP' }}</td>
         <td>{{ p.stock }}</td>
         <td>
           <a [routerLink]="['/admin/products', p.id, 'edit']" class="btn btn-sm btn-warning me-2">Edit</a>
