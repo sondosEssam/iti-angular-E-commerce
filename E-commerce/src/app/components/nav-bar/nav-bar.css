@@ -1,5 +1,8 @@
 /* Modern navbar */
-.app-navbar { background: rgba(255,255,255,.8); backdrop-filter: saturate(180%) blur(10px); border-bottom: 1px solid #e2e8f0; }
-.app-navbar .navbar-brand { letter-spacing: .3px; }
+.app-navbar { position: sticky; top: 0; z-index: 1080; background: #ffffff; border-bottom: 1px solid #e2e8f0; }
+.app-navbar .navbar-brand { letter-spacing: .3px; color: #0f172a; }
+.app-navbar .navbar-brand:hover { color: #0f172a; }
 .app-navbar .nav-link { color: #334155; }
 .app-navbar .nav-link.active, .app-navbar .nav-link:hover { color: #1d4ed8; }
+.app-navbar .btn-outline-dark { color: #334155; border-color: #cbd5e1; }
+.app-navbar .btn-outline-dark:hover { background: #f1f5f9; border-color: #94a3b8; }
