@@ -38,7 +38,7 @@ A modern e-commerce application built with Angular 17+ and Bootstrap 5, featurin
 
 1. Clone and install dependencies:
 ```bash
-git clone <repository-url>
+git clone https://github.com/sondosEssam/iti-angular-E-commerce
 cd E-commerce
 npm install
 ```
@@ -130,33 +130,3 @@ The application uses JSON Server for mock backend with these endpoints:
 - Responsive design with Bootstrap 5 and custom CSS
 - Modern UI with linear gradients and smooth animations
 - Mobile-first responsive layout
-
-## Troubleshooting
-
-### Common Issues
-
-1. **JSON Server not starting**
-   - Ensure port 3000 is not in use by another application
-   - Install JSON Server globally: `npm install -g json-server`
-   - Verify db.json file exists in the root directory
-
-2. **CORS or API errors**
-   - Both servers must be running simultaneously (Angular on 4200, JSON Server on 3000)
-   - Check browser network tab for failed API requests
-   - Restart both servers if connection issues persist
-
-3. **Authentication problems**
-   - Clear browser localStorage when switching between users
-   - Verify user credentials exist in db.json
-   - Check browser console for token-related errors
-
-4. **Cart not updating**
-   - Ensure user is properly logged in
-   - Check if userId is set in localStorage
-   - Verify cart service API calls are successful
-
-### Development Tips
-- Use browser developer tools to monitor network requests
-- Check console for JavaScript errors
-- Test with different user accounts to verify cart isolation
-- Verify JSON Server logs for API request/response details
