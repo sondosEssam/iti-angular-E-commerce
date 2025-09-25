@@ -1,0 +1,23 @@
+.container-c {
+    background: url('/assets/login-bg.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    
+}
+.first{
+    border-right: 1px solid #ccc;
+    opacity: 1;
+    
+}
+.second{
+    opacity: 1;
+}
+.row{
+    /* make background less opacity */
+    background-color: var(--light-blue-right);
+    /* blurry effect: */
+    backdrop-filter: blur(10px);
+    padding: 30px;
+  
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}

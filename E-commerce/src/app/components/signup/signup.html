@@ -1,0 +1,37 @@
+<div class="container-c w-100 d-flex justify-content-center align-items-center ">
+  <main class="w-75 d-flex justify-content-center align-items-center p-5 h-75">
+    <div class="row rounded shadow p-0 w-75 h-100">
+      <div
+        class="col-md-6 p-0 d-flex flex-column justify-content-evenly align-items-center first p-4 text-white"
+      >
+      <!-- change font size wiht bootstrap -->
+        <h2 class="h1">Welcome !</h2>
+        <p class="text-center h4">Please enter your credentials to sign up.</p>
+      </div>
+      <div
+        class="col-md-6 p-0 d-flex flex-column justify-content-evenly align-items-center p-4 text-white second"
+      >
+        <h2 class="mb-5">Sign up</h2>
+        <form class="w-100 d-flex flex-column" [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="form-group mb-4 w-100">
+            <input type="text" class="form-control py-2" id="name" placeholder="Enter name" formControlName="name" />
+          </div>
+          <div class="form-group mb-4 w-100">
+            <input type="email" class="form-control py-2" placeholder="Enter email" formControlName="email" />
+          </div>
+          <div class="form-group mb-4">
+            <input type="password" class="form-control py-2"  placeholder="Password" formControlName="password" />
+          </div>
+          <div class="form-group mb-4">
+            <input type="password" class="form-control py-2"  placeholder="Confirm Password" formControlName="confirmPassword" />
+          </div>
+
+          <button type="submit" class="btn btn-primary mb-2">Sign Up</button>
+        </form>
+        <p class="mt-3">
+          Already have an account? <a routerLink="/login" routerLinkActive="active">Log In</a>
+        </p>
+      </div>
+    </div>
+  </main>
+</div>
