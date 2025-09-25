@@ -1,25 +1,41 @@
-<div class="container mt-4">
-  <h2 class="mb-4">Edit Product</h2>
-  <form (ngSubmit)="save()">
-    <div class="mb-3">
-      <label class="form-label">Name</label>
-      <input class="form-control" [(ngModel)]="product.name" name="name">
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Price</label>
-      <input type="number" class="form-control" [(ngModel)]="product.price" name="price">
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Category</label>
-      <input class="form-control" [(ngModel)]="product.category" name="category">
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Stock</label>
-      <input type="number" class="form-control" [(ngModel)]="product.stock" name="stock">
-    </div>
-    <button type="submit" class="btn btn-success me-2">Update</button>
-    <a routerLink="/admin/products" class="btn btn-secondary">Cancel</a>
-  </form>
+<div class="container py-4">
+  <div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-4">
+    <h1 class="h5 m-0">Edit Product</h1>
+    <a routerLink="/admin/products" class="btn btn-outline-secondary">Back to list</a>
+  </div>
+
+  <div class="card p-3 border-0" style="box-shadow:0 10px 24px rgba(2,6,23,.08); border-radius:16px">
+    <form (ngSubmit)="save()" class="row g-3">
+      <div class="col-md-6">
+        <label class="form-label">Title</label>
+        <input class="form-control" [(ngModel)]="product.title" name="title">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Price</label>
+        <input type="number" class="form-control" [(ngModel)]="product.price" name="price">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Stock</label>
+        <input type="number" class="form-control" [(ngModel)]="product.stock" name="stock">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Category</label>
+        <input class="form-control" [(ngModel)]="product.category" name="category">
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Image URL</label>
+        <input class="form-control" [(ngModel)]="product.image" name="image">
+      </div>
+      <div class="col-12">
+        <label class="form-label">Description</label>
+        <textarea class="form-control" rows="3" [(ngModel)]="product.description" name="description"></textarea>
+      </div>
+      <div class="col-12 d-flex gap-2 mt-2">
+        <button type="submit" class="btn btn-primary">Update product</button>
+        <a routerLink="/admin/products" class="btn btn-light">Cancel</a>
+      </div>
+    </form>
+  </div>
 </div>
 
 
