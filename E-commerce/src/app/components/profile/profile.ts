@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { Token } from '../../services/token';
 import { Router } from '@angular/router';
 import { Http } from '../../services/http';
@@ -8,7 +9,7 @@ import { IUser } from '../../interface/iuser';
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './profile.html',
   styleUrl: './profile.css'
 })

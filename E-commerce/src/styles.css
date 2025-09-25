@@ -18,15 +18,32 @@
     --brand: #2563eb;
     --brand-600: #1d4ed8;
     --surface: #f8fafc;
+    --muted: #64748b;
+    --card-shadow: 0 10px 25px rgba(2, 6, 23, 0.08);
 }
 
-html, body { background: var(--surface); }
+html, body { background: var(--surface); color: #0f172a; }
 
 .btn-primary { background: var(--brand); border-color: var(--brand); }
 .btn-primary:hover { background: var(--brand-600); border-color: var(--brand-600); }
 
-.card { border: 0; border-radius: 12px; }
+.card { border: 0; border-radius: 14px; box-shadow: var(--card-shadow); }
 .card .card-img-top { border-top-left-radius: 12px; border-top-right-radius: 12px; }
+
+/* Product card hover */
+.card.h-100 { transition: transform .2s ease, box-shadow .2s ease; }
+.card.h-100:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(2,6,23,.12); }
 
 .navbar-light .navbar-brand { font-weight: 700; }
 .navbar-light .nav-link.active { color: var(--brand) !important; }
+
+/* Forms */
+.form-control, .form-select { border-radius: 10px; border-color: #e2e8f0; }
+.form-control:focus, .form-select:focus { box-shadow: 0 0 0 .25rem rgba(37,99,235,.15); border-color: var(--brand); }
+
+/* Sections spacing */
+.container { padding-left: 1rem; padding-right: 1rem; }
+.py-4 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+
+/* Footer */
+footer, .footer { background: #0f172a; color: #cbd5e1; }
