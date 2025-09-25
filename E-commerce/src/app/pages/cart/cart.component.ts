@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { CartService, CartItem } from '../../services/cart.service';
 import { ProductService, Product } from '../../services/product.service';
+import { Token } from '../../services/token';
 
 @Component({
   selector: 'app-cart-page',
@@ -15,12 +16,21 @@ export class CartPageComponent implements OnInit {
   items: (CartItem & { product?: Product })[] = [];
   subtotal = 0;
 
-  constructor(private cartService: CartService, private productService: ProductService) {}
+  constructor(
+    private cartService: CartService, 
+    private productService: ProductService,
+    private tokenService: Token
+  ) {}
 
   ngOnInit(): void {
-    const savedUserId = localStorage.getItem('userId');
-    const userId = savedUserId ? JSON.parse(savedUserId) : 2;
-    this.cartService.getCart(userId).subscribe(items => {
+    // Get user ID from Token service (more reliable than localStorage)
+    const userId = this.tokenService.getUserId();
+    if (!userId) {
+      console.error('No user ID found');
+      return;
+    }
+    
+    this.cartService.getCart(userId as number).subscribe(items => {
       // compress same product rows
       const map = new Map<number, CartItem>();
       items.forEach(it => {

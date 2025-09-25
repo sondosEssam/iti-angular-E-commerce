@@ -48,12 +48,9 @@ onSubmit()
   const user = this.users.find(u => u.email === email && u.password === password);
   if(user)
   {
-    this.token.setToken(user.token!);
+    this.token.setToken(user.token!, user.id);
     localStorage.setItem("auth", JSON.stringify(user.token));
     this.notify.show('Welcome back!', 'success');
-    // Save user id for cart/checkout ownership
-    localStorage.setItem('userId', JSON.stringify(user.id));
-    this.token.setUserId(user.id);
     // Admins can still shop; just navigate to dashboard if they came from admin area
     this.router.navigate(['/']);
   }

@@ -31,8 +31,11 @@ export class Token {
     }
   }
 
-  setToken(token: string): void {
+  setToken(token: string, userId?: number | string): void {
     this.token.set(token);   // update signal
+    if (userId !== undefined) {
+      this.setUserId(userId);
+    }
   }
 
   getToken(): string {
@@ -56,6 +59,7 @@ export class Token {
 
   setUserId(id: number | string): void {
     this.userId.set(id);
+    localStorage.setItem('userId', JSON.stringify(id));
   }
 
   getUserId(): number | string | null {

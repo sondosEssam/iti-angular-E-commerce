@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ProductService, Product } from '../../services/product.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import { RouterModule } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomePageComponent {
+export class HomePageComponent implements OnInit {
  
   heroBanners = [
     { title: 'Big Sale', subtitle: 'Up to 70% Off Electronics', image: 'https://i.pinimg.com/1200x/62/a6/89/62a689b7c97e2af3c214d6f294f9eaea.jpg' },
@@ -19,12 +20,7 @@ export class HomePageComponent {
     { title: 'Gaming Deals', subtitle: 'Play more, pay less', image: 'https://i.pinimg.com/1200x/df/28/e7/df28e7e9a98dd9922e3ade7c6886c4b4.jpg' }
   ];
 
- 
-  featuredProducts = [
-    { id: 1, title: 'Laptop', price: 15000, image: 'https://i.pinimg.com/736x/38/65/94/386594135756b1c8572b20991e9dd963.jpg' },
-    { id: 2, title: 'Phone', price: 9000, image: 'https://i.pinimg.com/1200x/e1/74/35/e17435a073420e5fcb5557e304677655.jpg' },
-    { id: 3, title: 'Headphones', price: 1200, image: 'https://i.pinimg.com/736x/fd/3f/c7/fd3fc71cf6257839ca007b9c39803aae.jpg' }
-  ];
+  featuredProducts: Product[] = [];
 
 
   promoBanners = [
@@ -39,6 +35,15 @@ export class HomePageComponent {
     { slug: 'fashion', name: 'Fashion' },
     { slug: 'books', name: 'Books' }
   ];
+
+  constructor(private productService: ProductService) {}
+
+  ngOnInit(): void {
+    // Fetch first 3 products as featured products
+    this.productService.getProducts().subscribe(products => {
+      this.featuredProducts = products.slice(0, 3);
+    });
+  }
 }
 
 
