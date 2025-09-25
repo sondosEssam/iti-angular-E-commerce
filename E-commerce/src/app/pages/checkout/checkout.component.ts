@@ -26,7 +26,8 @@ export class CheckoutPageComponent {
     if (!this.shipping.name || !this.shipping.address || !this.shipping.city || !this.shipping.country) {
       return;
     }
-    const userId = 2; // demo
+    const savedUserId = localStorage.getItem('userId');
+    const userId = savedUserId ? JSON.parse(savedUserId) : 2;
     this.cartService.getCart(userId).subscribe(cartItems => {
       const total = cartItems.reduce((sum, it) => sum + it.quantity, 0); // simplistic
       const order = {

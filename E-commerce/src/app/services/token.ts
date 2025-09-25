@@ -6,6 +6,7 @@ import { Injectable, signal } from '@angular/core';
 export class Token {
   // 👇 this is writable by default
   private token = signal<string>("");
+  private userId = signal<number | string | null>(null);
 
   constructor() {
     const saved = localStorage.getItem('auth');
@@ -17,6 +18,15 @@ export class Token {
         }
       } catch {
         // ignore
+      }
+    }
+    const savedUserId = localStorage.getItem('userId');
+    if (savedUserId) {
+      try {
+        const parsedId = JSON.parse(savedUserId);
+        this.userId.set(parsedId);
+      } catch {
+        this.userId.set(savedUserId);
       }
     }
   }
@@ -31,6 +41,7 @@ export class Token {
 
   removeToken(): void {
     this.token.set("");      // reset signal
+    this.userId.set(null);
   }
 
   generateToken(): string {
@@ -40,5 +51,18 @@ export class Token {
     this.removeToken();
     // Additional logout logic can be added here
   localStorage.removeItem('auth');
+  localStorage.removeItem('userId');
+  }
+
+  setUserId(id: number | string): void {
+    this.userId.set(id);
+  }
+
+  getUserId(): number | string | null {
+    const id = this.userId();
+    if (id !== null) return id;
+    const savedUserId = localStorage.getItem('userId');
+    if (!savedUserId) return null;
+    try { return JSON.parse(savedUserId); } catch { return savedUserId; }
   }
 }

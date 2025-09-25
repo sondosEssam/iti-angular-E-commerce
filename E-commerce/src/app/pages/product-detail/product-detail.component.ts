@@ -27,7 +27,8 @@ export class ProductDetailPageComponent implements OnInit {
 
   addToCart() {
     if (!this.product) return;
-    const userId = 2; // demo user for now
+    const savedUserId = localStorage.getItem('userId');
+    const userId = savedUserId ? JSON.parse(savedUserId) : 2;
     const quantity = Math.max(1, this.qty | 0);
     const productId = this.product.id;
     // If same product exists in cart, increase quantity instead of creating new row

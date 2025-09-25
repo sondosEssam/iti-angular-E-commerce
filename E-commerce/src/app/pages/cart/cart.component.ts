@@ -18,7 +18,8 @@ export class CartPageComponent implements OnInit {
   constructor(private cartService: CartService, private productService: ProductService) {}
 
   ngOnInit(): void {
-    const userId = 2; // demo user for now
+    const savedUserId = localStorage.getItem('userId');
+    const userId = savedUserId ? JSON.parse(savedUserId) : 2;
     this.cartService.getCart(userId).subscribe(items => {
       // compress same product rows
       const map = new Map<number, CartItem>();

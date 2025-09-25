@@ -51,11 +51,11 @@ onSubmit()
     this.token.setToken(user.token!);
     localStorage.setItem("auth", JSON.stringify(user.token));
     this.notify.show('Welcome back!', 'success');
-    if (user.role === 'admin') {
-      this.router.navigate(['/admin/dashboard']);
-    } else {
-      this.router.navigate(['/']);
-    }
+    // Save user id for cart/checkout ownership
+    localStorage.setItem('userId', JSON.stringify(user.id));
+    this.token.setUserId(user.id);
+    // Admins can still shop; just navigate to dashboard if they came from admin area
+    this.router.navigate(['/']);
   }
   else
   {
