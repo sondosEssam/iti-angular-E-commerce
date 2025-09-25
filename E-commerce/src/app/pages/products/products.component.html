@@ -29,6 +29,7 @@
             <div class="product-overlay">
               <a [routerLink]="['/product', p.id]" class="btn btn-light btn-sm shadow">Quick view</a>
             </div>
+            <span *ngIf="p.stock === 1" class="low-stock-badge">Only 1 left</span>
           </div>
           <div class="card-body">
             <div class="d-flex align-items-start justify-content-between mb-2">
