@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { Product } from '../../../services/product.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -11,7 +12,8 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./product-edit.component.css']
 })
 export class ProductEditPageComponent {
-  product = { name: 'Laptop', price: 1000, category: 'Electronics', stock: 10, image: '' };
+  // flexible shape to support title/description fields
+  product: Partial<Product> = { title: 'Laptop', price: 1000, category: 'electronics', stock: 10, image: '', description: '' };
 
   save() {
     alert('Product updated: ' + JSON.stringify(this.product));
