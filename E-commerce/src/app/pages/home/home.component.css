@@ -1,8 +1,6 @@
 
-.fixed-img {
-  height: 250px;
-  object-fit: cover;
-}
+.fixed-img { height: 260px; object-fit: cover; }
+.hero-img { width: 100%; max-width: 100%; height: 420px; object-fit: cover; filter: brightness(.85); border-radius: 1rem; }
 
 .img-container {
   position: relative;
@@ -41,10 +39,7 @@
   opacity: 1;
 }
 
-.promo-card {
-  max-height: 480px;      
-  font-size: 0.9rem;
-}
+.promo-card { max-height: 480px; font-size: 0.9rem; }
 
 .promo-card img {
   height: 340px;          

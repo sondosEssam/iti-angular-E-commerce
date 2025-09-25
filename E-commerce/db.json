@@ -87,42 +87,6 @@
   ],
   "cart": [
     {
-      "id": "1",
-      "userId": 2,
-      "productId": 2,
-      "quantity": 1,
-      "product": {
-        "id": "2",
-        "title": "Smartphone X",
-        "price": 18000,
-        "category": "electronics",
-        "stock": 15,
-        "image": "https://i.pinimg.com/1200x/e1/74/35/e17435a073420e5fcb5557e304677655.jpg",
-        "description": "Flagship phone with great camera."
-      }
-    },
-    {
-      "id": "2",
-      "userId": 2,
-      "productId": 3,
-      "quantity": 5,
-      "product": {
-        "id": "3",
-        "title": "Noise‑Cancel Headphones",
-        "price": 2400,
-        "category": "electronics",
-        "stock": 25,
-        "image": "https://i.pinimg.com/736x/fd/3f/c7/fd3fc71cf6257839ca007b9c39803aae.jpg",
-        "description": "Immersive sound and comfort."
-      }
-    },
-    {
-      "id": "a6eb",
-      "userId": 2,
-      "productId": "1",
-      "quantity": 1
-    },
-    {
       "id": "5523",
       "userId": 2,
       "productId": "1",
