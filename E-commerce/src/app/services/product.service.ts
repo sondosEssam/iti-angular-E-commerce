@@ -10,6 +10,7 @@ export interface Product {
   stock: number;
   image: string;
   description: string;
+  discountPercent?: number;
 }
 
 @Injectable({ providedIn: 'root' })

@@ -46,7 +46,8 @@
       "category": "electronics",
       "stock": 8,
       "image": "https://i.pinimg.com/736x/38/65/94/386594135756b1c8572b20991e9dd963.jpg",
-      "description": "High‑performance laptop for pros."
+      "description": "High‑performance laptop for pros.",
+      "discountPercent": 10
     },
     {
       "id": "2",
@@ -55,7 +56,8 @@
       "category": "electronics",
       "stock": 15,
       "image": "https://i.pinimg.com/1200x/e1/74/35/e17435a073420e5fcb5557e304677655.jpg",
-      "description": "Flagship phone with great camera."
+      "description": "Flagship phone with great camera.",
+      "discountPercent": 5
     },
     {
       "id": "3",
@@ -82,7 +84,8 @@
       "category": "fashion",
       "stock": 30,
       "image": "https://i.pinimg.com/736x/c9/a4/87/c9a487b5ee9cf1e411d780aed66bbdf8.jpg",
-      "description": "Stylish and durable jacket."
+      "description": "Stylish and durable jacket.",
+      "discountPercent": 20
     }
   ],
   "cart": [
