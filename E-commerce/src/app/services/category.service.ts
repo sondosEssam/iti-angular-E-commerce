@@ -6,7 +6,7 @@ export interface Category { id: string; name: string }
 
 @Injectable({ providedIn: 'root' })
 export class CategoryService {
-  private readonly baseUrl = 'http://localhost:3000';
+  private readonly baseUrl = '/api';
   constructor(private http: HttpClient) {}
 
   getCategories(): Observable<Category[]> {

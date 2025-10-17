@@ -14,7 +14,7 @@ export interface Order {
 
 @Injectable({ providedIn: 'root' })
 export class OrderService {
-  private readonly baseUrl = 'http://localhost:3000';
+  private readonly baseUrl = '/api';
   constructor(private http: HttpClient) {}
 
   createOrder(order: Order): Observable<Order> {

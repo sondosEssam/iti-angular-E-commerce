@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "cd E-commerce && npm install && npm run build",
-    "start": "node server/server.js"
+    "vercel-build": "cd E-commerce && npm install && npm run build"
   },
   "dependencies": {
     "json-server": "^0.17.4"

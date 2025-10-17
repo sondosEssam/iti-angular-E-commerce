@@ -11,7 +11,7 @@ export interface CartItem {
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
-  private readonly baseUrl = 'http://localhost:3000';
+  private readonly baseUrl = '/api';
   constructor(private http: HttpClient) {}
 
   getCart(userId: number): Observable<CartItem[]> {

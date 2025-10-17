@@ -7,7 +7,7 @@ import { Observable, map } from 'rxjs';
   providedIn: 'root'
 })
 export class Http  {
-  base_url : string = "http://localhost:3000";
+  base_url : string = "/api";
   constructor(private http: HttpClient){}
   getUsers (): Observable<IUser[]>{
     return this.http.get<IUser[]>(`${this.base_url}/users`);

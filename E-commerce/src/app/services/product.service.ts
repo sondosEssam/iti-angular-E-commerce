@@ -15,7 +15,7 @@ export interface Product {
 
 @Injectable({ providedIn: 'root' })
 export class ProductService {
-  private readonly baseUrl = 'http://localhost:3000';
+  private readonly baseUrl = '/api';
   constructor(private http: HttpClient) {}
 
   getProducts(): Observable<Product[]> {
