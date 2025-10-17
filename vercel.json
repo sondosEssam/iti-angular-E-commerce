@@ -17,7 +17,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/E-commerce/dist/browser/index.html"
+      "dest": "/E-commerce/dist/E-commerce/browser/index.html"
     }
   ]
 }
