@@ -1,0 +1,12 @@
+{
+  "name": "iti-angular-e-commerce",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "cd E-commerce && npm install && npm run build",
+    "start": "node server/server.js"
+  },
+  "dependencies": {
+    "json-server": "^0.17.4"
+  }
+}
