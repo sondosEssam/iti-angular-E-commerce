@@ -1,18 +1,13 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "E-commerce/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "E-commerce/dist/browser/E-commerce"
-      }
-    },
-    {
-      "src": "server/server.js",
-      "use": "@vercel/node"
+  "buildCommand": "cd E-commerce && npm install && npm run build",
+  "outputDirectory": "E-commerce/dist/E-commerce/browser",
+  "framework": "angular",
+  "functions": {
+    "api/**/*.js": {
+      "runtime": "nodejs18.x"
     }
-  ],
+  },
   "routes": [
     { "src": "/api/(.*)", "dest": "/server/server.js" },
     { "src": "/(.*)", "dest": "/E-commerce/dist/E-commerce/browser/index.html" }
