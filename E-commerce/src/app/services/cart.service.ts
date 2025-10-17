@@ -29,6 +29,10 @@ export class CartService {
   removeItem(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/cart/${id}`);
   }
+
+  clearCart(userId: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}/cart?userId=${userId}`);
+  }
 }
 
 
